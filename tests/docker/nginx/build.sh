@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+cd "$(dirname "$0")"
 echo "******* copying static resources here (yep, Dockerfile hack...)"
 cp -ar ../../../httpwookiee/static ./latest/
 cp -ar ../../../httpwookiee/static ./stable/
@@ -28,3 +29,4 @@ echo "******* docker ps"
 docker ps -a
 # if you want to edit files in a running docker (for tests, do not forget to getyour copy back in conf dir)
 #docker run -i -t --rm --volumes-from wrpnginx_latest --name wookieenginxfiles debian /bin/bash
+cd -
